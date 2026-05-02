@@ -18,7 +18,6 @@ interface BillingRecord {
 export default function BillingPage() {
   const [bills, setBills] = useState<BillingRecord[]>([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
 
   const { data: session } = useSession();
 
@@ -31,7 +30,6 @@ export default function BillingPage() {
         setBills(res.data);
       } catch (err) {
         console.error("Auth error:", err);
-        setError("An unexpected error occurred");
       } finally {
         setLoading(false);
       }
