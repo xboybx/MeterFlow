@@ -20,20 +20,22 @@ export default function AuthPage() {
 
     try {
       if (isLogin) {
+        console.log("Attempting sign in...");
         const res = await signIn.email({ email, password });
+        console.log("Sign in response:", res);
         if (res.error) {
           setError(res.error.message || "Failed to sign in");
         } else {
-          router.push("/");
-          router.refresh();
+          window.location.href = "/";
         }
       } else {
+        console.log("Attempting sign up...");
         const res = await signUp.email({ email, password, name });
+        console.log("Sign up response:", res);
         if (res.error) {
           setError(res.error.message || "Failed to sign up");
         } else {
-          router.push("/");
-          router.refresh();
+          window.location.href = "/";
         }
       }
     } catch (err) {
