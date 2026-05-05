@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { signIn, signUp } from "@/lib/auth-client";
-import { useRouter } from "next/navigation";
 
 export default function AuthPage() {
   const [isLogin, setIsLogin] = useState(true);
@@ -11,7 +10,6 @@ export default function AuthPage() {
   const [name, setName] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-  const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
